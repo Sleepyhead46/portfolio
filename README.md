@@ -1,114 +1,160 @@
-# Samyak Deshar — Portfolio
+﻿# 🌌 Samyak''s Portfolio
 
-A personal portfolio built to feel interactive and alive rather than like a static résumé. It combines smooth scroll animations, a real-time 3D character scene, and a project carousel to present my background, skills, and selected work.
+> An immersive, interactive 3D portfolio built with React, Three.js, and GSAP — featuring physics-based animations, a 3D character model, and smooth scroll-driven experiences.
 
-Live at: **[samyakdeshar.com](https://samyakdeshar.com)** *(update with your actual URL)*
 
----
 
-## Features
 
-- **3D Character Scene** — Real-time character rendered with Three.js / React Three Fiber and physics via Rapier, complete with post-processing effects.
-- **Animated Sections** — Every section enters with GSAP scroll-triggered animations for a polished, cinematic feel.
-- **Interactive Project Carousel** — Browse selected work with a smooth, keyboard- and pointer-driven carousel.
-- **Tech-Stack Marquee** — Continuously scrolling banner that lists technologies I work with daily.
-- **Custom Cursor** — A context-aware cursor that reacts to hover targets across the page.
-- **Contact Form** — Reach-out section with social links and direct contact details.
-- **Vercel Analytics** — Lightweight, privacy-friendly page analytics baked in.
+
 
 ---
 
-## Tech Stack
+## ✨ Features
 
-| Layer | Library / Tool |
-|---|---|
-| UI Framework | React 18 + TypeScript |
-| Build Tooling | Vite 5 |
-| 3D Rendering | Three.js, React Three Fiber, Drei |
-| Physics | React Three Rapier |
-| Post-processing | React Three Postprocessing |
-| Animation | GSAP 3 + `@gsap/react` |
-| Scrolling Marquee | React Fast Marquee |
-| Icons | React Icons |
-| Analytics | Vercel Analytics |
-| Linting | ESLint 9 + TypeScript ESLint |
+- **3D Character Model** — An animated character rendered with `@react-three/fiber` and a custom HDR environment
+- **Physics-Based Tech Stack** — Interactive floating spheres with Rapier physics, each textured with a tech logo; interact with your cursor
+- **Scroll-Driven Animations** — Horizontal project carousel and section reveals powered by GSAP ScrollTrigger
+- **Custom Cursor** — Smooth animated cursor that enhances the desktop experience
+- **Marquee Ticker** — Scrolling tech/skill ticker using `react-fast-marquee`
+- **Loading Screen** — Polished loader before the main content appears
+- **Vercel Analytics** — Built-in `@vercel/analytics` integration
+- **Fully Responsive** — Adapts gracefully across screen sizes
 
 ---
 
-## Project Layout
+## 🧱 Tech Stack
+
+| Category        | Technology                              |
+| --------------- | --------------------------------------- |
+| Framework       | React 18 + TypeScript                   |
+| Build Tool      | Vite 5                                  |
+| 3D Engine       | Three.js + React Three Fiber            |
+| Physics         | Rapier (`@react-three/rapier`)        |
+| Post-processing | `@react-three/postprocessing` (N8AO)  |
+| Animations      | GSAP + ScrollTrigger                    |
+| UI Components   | `react-icons`, `react-fast-marquee` |
+| Analytics       | `@vercel/analytics`                   |
+| Linting         | ESLint + TypeScript-ESLint              |
+
+---
+
+## 📁 Project Structure
 
 ```
 portfolio/
 ├── public/
-│   └── images/          # Static image assets
+│   ├── images/          # Tech logo textures (WebP/PNG)
+│   └── models/          # 3D model files & HDR environment
 ├── src/
-│   ├── assets/          # Fonts, models, and other imported assets
+│   ├── assets/          # Static assets
 │   ├── components/
-│   │   ├── Character/   # Three.js character scene & helpers
-│   │   ├── styles/      # Per-section CSS modules
+│   │   ├── Character/   # 3D character model component
+│   │   ├── styles/      # Per-component CSS files
 │   │   ├── utils/       # Shared utility components
-│   │   ├── About.tsx
-│   │   ├── Career.tsx
-│   │   ├── Contact.tsx
-│   │   ├── Cursor.tsx
-│   │   ├── Landing.tsx
-│   │   ├── Loading.tsx
-│   │   ├── MainContainer.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── SocialIcons.tsx
-│   │   ├── TechStack.tsx
-│   │   ├── WhatIDo.tsx
-│   │   ├── Work.tsx
-│   │   └── WorkImage.tsx
-│   ├── context/         # React context providers
-│   ├── data/            # Static data (e.g. bone/animation data)
+│   │   ├── About.tsx    # About Me section
+│   │   ├── Career.tsx   # Career / Experience section
+│   │   ├── Contact.tsx  # Contact form / links
+│   │   ├── Cursor.tsx   # Custom animated cursor
+│   │   ├── Landing.tsx  # Hero / landing section
+│   │   ├── Loading.tsx  # Animated loading screen
+│   │   ├── MainContainer.tsx  # Layout wrapper & section orchestration
+│   │   ├── Navbar.tsx   # Navigation bar
+│   │   ├── SocialIcons.tsx    # Social media icon links
+│   │   ├── TechStack.tsx      # Physics-based 3D tech ball pit
+│   │   ├── WhatIDo.tsx        # Skills / services section
+│   │   ├── Work.tsx           # Horizontal scrolling project cards
+│   │   └── WorkImage.tsx      # Project image display helper
+│   ├── context/
+│   │   └── LoadingProvider.tsx  # Global loading state context
+│   ├── data/
+│   │   └── boneData.ts   # Character bone/animation data
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── index.css
 ├── index.html
 ├── vite.config.ts
+├── tsconfig.json
 └── package.json
 ```
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
-**Prerequisites:** Node.js 18+ and npm.
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) v18 or higher
+- npm (comes with Node.js)
+
+### Installation
 
 ```bash
-# 1. Install dependencies
+# 1. Clone the repository
+git clone https://github.com/Sleepyhead46/portfolio.git
+cd portfolio
+
+# 2. Install dependencies
 npm install
 
-# 2. Start the dev server
+# 3. Start the development server
 npm run dev
 ```
 
-Then open [http://localhost:5173](http://localhost:5173) in your browser.
+The app will be available at **http://localhost:3000**
 
-> **Note:** The dev server is started with `--host`, so it is also accessible on your local network.
+### Build for Production
 
----
+```bash
+npm run build
+```
 
-## Available Commands
+Output will be in the `dist/` folder.
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start the Vite development server (network-accessible) |
-| `npm run build` | Type-check with `tsc` and output a production bundle |
-| `npm run preview` | Serve the production build locally |
-| `npm run lint` | Run ESLint across the project |
+### Preview Production Build
 
----
-
-## Deployment
-
-The project is optimised for deployment on **Vercel**. Push to your linked repository and Vercel will automatically run `npm run build` and publish the output.
-
-For other hosts, run `npm run build` and serve the generated `dist/` directory as a static site.
+```bash
+npm run preview
+```
 
 ---
 
-## License
+## 🗂️ Featured Projects
 
-This project is for personal use. Feel free to draw inspiration, but please do not copy the design or content directly.
+| #  | Project                                                                                                         | Description                                            | Stack                                             |
+| -- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------- |
+| 01 | [**CropAI**](https://github.com/Sleepyhead46/CropAI-Crop-Recommendation-Plant-Disease-Classification-.git) | Crop recommendation & plant disease classification app | Python • Streamlit • scikit-learn • TensorFlow |
+| 02 | [**Fake News Detection**](https://github.com/Sleepyhead46/Fake-News-Detection.git)                         | NLP classifier with TF-IDF and visual analytics        | Python • Streamlit • scikit-learn • NLP        |
+| 03 | [**Mobile Sales Dashboard**](https://github.com/Sleepyhead46/Mobile-phone-sales-powerbi-dashboard)         | Interactive Power BI report with DAX measures          | Power BI • DAX • Power Query                    |
+| 04 | [**Credit Card Analysis**](https://github.com/Sleepyhead46/Credit-Card-Power-Bi-analysis)                  | Credit card financial analysis dashboard               | Power BI • DAX • Data Modeling                  |
+
+---
+
+## 🛠️ Available Scripts
+
+| Script              | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `npm run dev`     | Start dev server with hot reload (exposed on network) |
+| `npm run build`   | Type-check and build for production                   |
+| `npm run preview` | Preview the production build locally                  |
+| `npm run lint`    | Lint the codebase with ESLint                         |
+
+---
+
+## 🌐 Deployment
+
+This project is optimized for deployment on **Vercel**:
+
+1. Push to GitHub
+2. Import the repo at [vercel.com](https://vercel.com)
+3. Vercel auto-detects Vite — click **Deploy**
+
+Analytics are already wired up via `@vercel/analytics`.
+
+---
+
+## 📬 Contact
+
+- **GitHub**: [@Sleepyhead46](https://github.com/Sleepyhead46)
+- **Repository**: [github.com/Sleepyhead46/portfolio](https://github.com/Sleepyhead46/portfolio.git)
+
+---
